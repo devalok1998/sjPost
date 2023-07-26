@@ -69,7 +69,7 @@ local.properties
 
 # Node
 node_modules
-package.json
+# package.json
 yarn.lock
 ios
 android

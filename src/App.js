@@ -1,8 +1,8 @@
 import './App.css';
 import 'rsuite/dist/rsuite.min.css';
-import { Button, ButtonGroup, IconButton } from 'rsuite';
+import { Button, ButtonGroup, IconButton,Nav,Navbar } from 'rsuite';
 import ButtonToolbar from 'rsuite/ButtonToolbar';
-import {Gear,Message} from "@rsuite/icons";
+import {Gear,Message, Others, Unvisible, Visible} from "@rsuite/icons";
 import { CustomProvider } from 'rsuite';
 import React,{useState,useEffect} from 'react';
 
@@ -21,41 +21,30 @@ function App() {
 
   return (
     <CustomProvider theme={toggleMode?'dark':'light'}>
-    <div className="App">
-      <Button appearance='ghost'>Hello World</Button>
+    <Navbar appearance={'inverse'}>
+      <Navbar.Brand>
+        THE BEST WAY TO COME HERE
+      </Navbar.Brand>
+      <Nav>
+      <Nav.Item icon={<Others/>}>Home </Nav.Item>
+        <Nav.Item icon={<Others/>}>Modal </Nav.Item>
+        <Nav.Menu title={"About"}>
+        <Nav.Item icon={<Others/>}>Home </Nav.Item>
+        <Nav.Item icon={<Others/>}>Modal </Nav.Item>
+        <Nav.Item icon={<Others/>}>Home </Nav.Item>
+        <Nav.Item icon={<Others/>}>Modal </Nav.Item>
+        </Nav.Menu>
+      </Nav>
+      <Nav pullRight>
+        <Nav.Item>
       <ButtonToolbar>
-        <Button size={'md'}>Medium</Button>
-        <Button size={'sm'}>Small</Button>
-        <Button size={'xs'}>Xtra S</Button>
+      <IconButton onClick={toggleButtonCall} size={'lg'} appearance={'ghost'} icon={toggleMode?<Visible/>:<Unvisible/>}> {toggleMode ? "LIGHT":"DARK"} </IconButton>
       </ButtonToolbar>
-      <ButtonToolbar>
-        <IconButton icon={<Gear/>}/>
-        <IconButton icon={<Message/>} color={'orange'} appearance={'primary'} placement={'right'} circle>Message</IconButton>
-      </ButtonToolbar>
-      <Button block disabled appearance={'primary'} loading>BUTTON</Button>
-      <ButtonToolbar>
-        <ButtonGroup>
-          <Button>#1</Button>
-          <Button>#2</Button>
-          <Button>#3</Button>
-          <Button>#4</Button>
-          <Button>#5</Button>
-          <Button>#6</Button>
-
-
-        </ButtonGroup>
-        <ButtonGroup>
-          <Button appearance={'primary'}>#1</Button>
-          <Button appearance={'primary'}>#2</Button>
-          <Button appearance={'primary'}>#3</Button>
-          <Button appearance={'primary'}>#4</Button>
-          <Button appearance={'primary'}>#5</Button>
-          <Button appearance={'primary'}>#6</Button>
-
-
-        </ButtonGroup>
-      </ButtonToolbar>
-    </div>
+      </Nav.Item>
+      </Nav>
+    </Navbar>
+    
+   
     </CustomProvider>
   );
 }

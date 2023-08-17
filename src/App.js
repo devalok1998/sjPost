@@ -24,7 +24,6 @@ function App() {
     <div className="App">
       <Button appearance='ghost'>Hello World</Button>
       <ButtonToolbar>
-        <Button size={'lg'}>Large</Button>
         <Button size={'md'}>Medium</Button>
         <Button size={'sm'}>Small</Button>
         <Button size={'xs'}>Xtra S</Button>
